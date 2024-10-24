@@ -140,6 +140,7 @@ elseif(CMAKE_COMPILER_IS_GNUCC OR CMAKE_COMPILER_IS_GNUCXX OR CMAKE_C_COMPILER_I
         list(APPEND _picky_enable
           ${_picky_common}
         # -Wunreachable-code-break         # clang  3.5            appleclang  6.0  # Not used: Silent in "unity" builds
+          -Wunreachable-code-break         # clang  3.5            appleclang  6.0
           -Wheader-guard                   # clang  3.4            appleclang  5.1
           -Wsometimes-uninitialized        # clang  3.2            appleclang  4.6
         )
@@ -226,6 +227,7 @@ elseif(CMAKE_COMPILER_IS_GNUCC OR CMAKE_COMPILER_IS_GNUCXX OR CMAKE_C_COMPILER_I
 
     foreach(_ccopt IN LISTS _picky_enable)
       list(APPEND _picky "${_ccopt}")
+      set(_picky "${_picky} ${_ccopt}")
     endforeach()
 
     foreach(_ccopt IN LISTS _picky_detect)
@@ -258,5 +260,11 @@ elseif(CMAKE_COMPILER_IS_GNUCC OR CMAKE_COMPILER_IS_GNUCXX OR CMAKE_C_COMPILER_I
       set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${_picky}")
       message(STATUS "Picky compiler options: ${_picky}")
     endif()
+        set(_picky "${_picky} ${_ccopt}")
+      endif()
+    endforeach()
+
+    message(STATUS "Picky compiler options:${_picky}")
+    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${_picky}")
   endif()
 endif()
