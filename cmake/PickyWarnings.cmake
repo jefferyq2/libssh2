@@ -282,5 +282,7 @@ elseif(CMAKE_COMPILER_IS_GNUCC OR CMAKE_COMPILER_IS_GNUCXX OR CMAKE_C_COMPILER_I
       set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${_picky}")
       message(STATUS "Picky compiler options: ${_picky}")
     endif()
+    message(STATUS "Picky compiler options:${_picky}")
+    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${_picky}")
   endif()
 endif()
