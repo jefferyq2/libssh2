@@ -17,6 +17,21 @@
 # - `LIBGCRYPT_LIBRARY_DIRS`:  The Libgcrypt library directories.
 # - `LIBGCRYPT_CFLAGS`:        Required compiler flags.
 # - `LIBGCRYPT_VERSION`:       Version of Libgcrypt.
+# Find the libgcrypt library
+#
+# Input variables:
+#
+# LIBGCRYPT_INCLUDE_DIR   The libgcrypt include directory
+# LIBGCRYPT_LIBRARY       Path to libgcrypt library
+#
+# Result variables:
+#
+# LIBGCRYPT_FOUND         System has libgcrypt
+# LIBGCRYPT_INCLUDE_DIRS  The libgcrypt include directories
+# LIBGCRYPT_LIBRARIES     The libgcrypt library names
+# LIBGCRYPT_LIBRARY_DIRS  The libgcrypt library directories
+# LIBGCRYPT_CFLAGS        Required compiler flags
+# LIBGCRYPT_VERSION       Version of libgcrypt
 
 if((UNIX OR VCPKG_TOOLCHAIN OR (MINGW AND NOT CMAKE_CROSSCOMPILING)) AND
    NOT DEFINED LIBGCRYPT_INCLUDE_DIR AND

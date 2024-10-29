@@ -17,6 +17,21 @@
 # - `WOLFSSL_LIBRARY_DIRS`:  The wolfSSL library directories.
 # - `WOLFSSL_CFLAGS`:        Required compiler flags.
 # - `WOLFSSL_VERSION`:       Version of wolfSSL.
+# Find the wolfssl library
+#
+# Input variables:
+#
+# WOLFSSL_INCLUDE_DIR   The wolfssl include directory
+# WOLFSSL_LIBRARY       Path to wolfssl library
+#
+# Result variables:
+#
+# WOLFSSL_FOUND         System has wolfssl
+# WOLFSSL_INCLUDE_DIRS  The wolfssl include directories
+# WOLFSSL_LIBRARIES     The wolfssl library names
+# WOLFSSL_LIBRARY_DIRS  The wolfssl library directories
+# WOLFSSL_CFLAGS        Required compiler flags
+# WOLFSSL_VERSION       Version of wolfssl
 
 if((UNIX OR VCPKG_TOOLCHAIN OR (MINGW AND NOT CMAKE_CROSSCOMPILING)) AND
    NOT DEFINED WOLFSSL_INCLUDE_DIR AND
